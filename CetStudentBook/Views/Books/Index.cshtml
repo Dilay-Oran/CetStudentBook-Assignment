@@ -18,6 +18,7 @@
             <th>Publish Date</th>
             <th>Page Count</th>
             <th>Second Hand?</th>
+            <th>Category</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -30,9 +31,14 @@
                 <td>@book.PublishDate.ToShortDateString()</td>
                 <td>@book.PageCount</td>
                 <td>@(book.IsSecondHand ? "Yes" : "No")</td>
+                <td>@book.Category?.Name</td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@book.Id" class="btn btn-sm btn-warning">Edit</a>
                     <a asp-action="Delete" asp-route-id="@book.Id" class="btn btn-sm btn-danger">Delete</a>
+                    @if (User.Identity != null && User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@book.Id" class="btn btn-sm btn-success">Add to Cart</a>
+                    }
                 </td>
             </tr>
         }

@@ -6,18 +6,19 @@ namespace CetStudentBook.Models
     public class Student
     {
         [Key]
-        public int Id { get; set; } //Integer , Primary Key, Auto-increment
-        [Length(3,200)]
+        public int Id { get; set; }
+
+        [Length(3, 200)]
         [DisplayName("Full Name")]
-         public string Name { get; set; }  //nvarchar(max), Not Null
+        // "= string.Empty;" ekleyerek başlangıçta boş olmadığını garanti ediyoruz.
+        public string Name { get; set; } = string.Empty;
 
         [DataType(DataType.EmailAddress)]
-        [Length(5,200)]
-        public string Email { get; set; } //nvarchar(200), Not Null
-        
+        [Length(5, 200)]
+        public string Email { get; set; } = string.Empty;
+
         [DisplayName("Birth Date")]
         [DataType(DataType.Date)]
-        public DateTime DateOfBirth { get; set; } //datetime2, Not Null
-
+        public DateTime DateOfBirth { get; set; }
     }
 }

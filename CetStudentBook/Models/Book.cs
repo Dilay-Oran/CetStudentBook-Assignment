@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CetStudentBook.Models
 {
@@ -30,5 +31,12 @@ namespace CetStudentBook.Models
         [Required]
         [DisplayName("Second Hand?")]
         public bool IsSecondHand { get; set; }
+
+        // Bunları ekle:
+        [DisplayName("Category")]
+        public int CategoryId { get; set; }
+
+        [ForeignKey("CategoryId")]
+        public Category? Category { get; set; }
     }
 }

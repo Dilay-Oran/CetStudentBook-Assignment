@@ -44,6 +44,13 @@
                 <span asp-validation-for="IsSecondHand" class="text-danger"></span>
             </div>
 
+            <div class="form-group mb-3">
+                <label asp-for="CategoryId" class="control-label">Category</label>
+                <select asp-for="CategoryId" class="form-control"
+                        asp-items="ViewBag.Categories"></select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
                 <a asp-action="Index" class="btn btn-secondary">Cancel</a>
